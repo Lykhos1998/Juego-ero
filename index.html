@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Viste a Luna</title>
+  <title>Viste a Luna 3D</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <header class="topbar">
-    <h1>✨ Viste a Luna</h1>
+    <h1>✨ Viste a Luna <span class="tag3d">3D</span></h1>
     <div class="affinity">
       <span id="levelName">Desconocidos</span>
       <div class="bar"><div id="affinityFill"></div></div>
@@ -18,19 +18,22 @@
 
   <main class="layout">
     <section class="stage">
-      <svg id="scene" viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Luna">
-        <g id="bg"></g>
-        <g id="char"></g>
-      </svg>
+      <div id="viewport"></div>
       <div id="bubble" class="bubble hidden"></div>
       <div id="hearts"></div>
       <div id="challengeBadge" class="challenge-badge hidden"></div>
+      <div class="cam-controls">
+        <button id="camFace" title="Acercar a la cara">🙂</button>
+        <button id="camBody" title="Cuerpo entero">🧍</button>
+        <button id="camSpin" title="Girar automáticamente">🔄</button>
+      </div>
+      <div class="drag-hint">Arrastra para girar · rueda para zoom</div>
     </section>
 
     <aside class="panel">
       <nav class="tabs">
         <button data-tab="ropa" class="active">👗 Ropa</button>
-        <button data-tab="estilo">💇 Estilo</button>
+        <button data-tab="cuerpo">💇 Cuerpo</button>
         <button data-tab="lugar">🏞️ Lugar</button>
         <button data-tab="hablar">💬 Interactuar</button>
       </nav>
@@ -42,9 +45,11 @@
         <div id="itemColors" class="swatches"></div>
       </div>
 
-      <div class="tab hidden" id="tab-estilo">
+      <div class="tab hidden" id="tab-cuerpo">
+        <h3>Figura</h3>
+        <div id="sliders" class="sliders"></div>
         <h3>Peinado</h3>
-        <div id="hairGrid" class="grid small"></div>
+        <div id="hairGrid" class="chips"></div>
         <h3>Color de pelo</h3>
         <div id="hairColors" class="swatches"></div>
         <h3>Ojos</h3>
@@ -66,6 +71,8 @@
           <button data-act="charlar">💬 Charlar</button>
           <button data-act="chiste">😂 Contar un chiste</button>
           <button data-act="halagar">🌟 Halagar su look</button>
+          <button data-act="bailar">💃 Pedirle que baile</button>
+          <button data-act="girar">🔄 Pedirle que gire</button>
         </div>
         <h3>Regalos</h3>
         <div id="gifts" class="actions gifts"></div>
@@ -81,6 +88,7 @@
     </aside>
   </main>
 
+  <script src="vendor/three.min.js"></script>
   <script src="game.js"></script>
 </body>
 </html>

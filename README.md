@@ -1,14 +1,16 @@
-# ✨ Viste a Luna
+# ✨ Viste a Luna 3D
 
-Juego web de vestir e interactuar con Luna, una diseñadora gráfica de 24 años.
-Sin dependencias: abre `index.html` en el navegador y a jugar.
+Juego web en 3D de vestir e interactuar con Luna, una diseñadora gráfica de 24 años.
+No necesita instalación ni servidor: abre `index.html` en el navegador y a jugar.
+Usa [three.js](https://threejs.org) r159, incluido en `vendor/` (licencia MIT).
 
 ## Cómo se juega
 
 - **👗 Ropa**: elige partes de arriba, de abajo, vestidos, zapatos y accesorios (sombreros, gafas, pendientes, collares, bolsos) y cambia el color de cada prenda.
-- **💇 Estilo**: peinado, color de pelo, ojos, labios y tono de piel.
+- **💇 Cuerpo**: deslizadores de figura (altura, busto, cintura, caderas, glúteos, piernas y hombros), peinado y colores de pelo, ojos, labios y piel. Siempre lleva una capa de ropa básica debajo.
+- **Cámara**: arrastra para girarla, usa la rueda para acercar, o los botones 🙂 (cara), 🧍 (cuerpo entero) y 🔄 (giro automático).
 - **🏞️ Lugar**: habitación, playa, parque, ciudad de noche, fiesta, oficina o invierno.
-- **💬 Interactuar**: saluda, charla, cuenta chistes, halaga su look o hazle regalos. También puedes hacer clic en su cabeza, sus manos o su ropa.
+- **💬 Interactuar**: saluda, charla, cuenta chistes, halaga su look, pídele que baile o que gire, o hazle regalos. Responde con gestos animados y expresiones. También puedes hacer clic en su cabeza, sus manos o su ropa.
   - Cada acción sube la **afinidad** (Desconocidos → Conocidos → Amigos → Muy cercanos → Enamorados).
   - Repetir la misma acción seguida la aburre 🙄.
   - Luna tiene **prendas favoritas** y un **regalo favorito** secretos: charla con ella para descubrirlos.
@@ -21,8 +23,10 @@ El progreso se guarda automáticamente en el navegador (`localStorage`).
 
 - `index.html`: estructura de la página.
 - `style.css`: estilos (adaptado a móvil).
-- `game.js`: dibujo SVG del personaje, catálogo de ropa, diálogos y lógica del juego.
+- `game.js`: modelo 3D procedural del personaje, ropa, escenarios, animaciones, diálogos y lógica del juego.
+- `vendor/three.min.js`: motor 3D.
 
 ### Añadir una prenda nueva
 
-En `game.js`, añade una entrada en `ITEMS.<categoría>` con su nombre, sus `tags` (ocasiones en las que encaja), un color por defecto y una función `draw(color)` que devuelva el SVG (lienzo de 400 × 700).
+1. En `game.js`, añade una entrada en `ITEMS.<categoría>` con su nombre, icono, `tags` (ocasiones en las que encaja) y color por defecto.
+2. En `buildCharacter()`, dibújala en el bloque de su categoría. La ropa se construye como una "capa" ligeramente más gruesa que el cuerpo (`torsoPiece`, `breasts`, `glutes`, `limbPiece`, `skirt`), así se adapta sola a la figura elegida.
