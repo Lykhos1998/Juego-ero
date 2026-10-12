@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Viste a Luna</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topbar">
+    <h1>✨ Viste a Luna</h1>
+    <div class="affinity">
+      <span id="levelName">Desconocidos</span>
+      <div class="bar"><div id="affinityFill"></div></div>
+      <span id="affinityValue">0</span>
+    </div>
+  </header>
+
+  <main class="layout">
+    <section class="stage">
+      <svg id="scene" viewBox="0 0 400 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Luna">
+        <g id="bg"></g>
+        <g id="char"></g>
+      </svg>
+      <div id="bubble" class="bubble hidden"></div>
+      <div id="hearts"></div>
+      <div id="challengeBadge" class="challenge-badge hidden"></div>
+    </section>
+
+    <aside class="panel">
+      <nav class="tabs">
+        <button data-tab="ropa" class="active">👗 Ropa</button>
+        <button data-tab="estilo">💇 Estilo</button>
+        <button data-tab="lugar">🏞️ Lugar</button>
+        <button data-tab="hablar">💬 Interactuar</button>
+      </nav>
+
+      <div class="tab" id="tab-ropa">
+        <div id="catChips" class="chips"></div>
+        <div id="itemGrid" class="grid"></div>
+        <h3>Color</h3>
+        <div id="itemColors" class="swatches"></div>
+      </div>
+
+      <div class="tab hidden" id="tab-estilo">
+        <h3>Peinado</h3>
+        <div id="hairGrid" class="grid small"></div>
+        <h3>Color de pelo</h3>
+        <div id="hairColors" class="swatches"></div>
+        <h3>Ojos</h3>
+        <div id="eyeColors" class="swatches"></div>
+        <h3>Labios</h3>
+        <div id="lipColors" class="swatches"></div>
+        <h3>Tono de piel</h3>
+        <div id="skinColors" class="swatches"></div>
+      </div>
+
+      <div class="tab hidden" id="tab-lugar">
+        <div id="bgGrid" class="grid"></div>
+      </div>
+
+      <div class="tab hidden" id="tab-hablar">
+        <p class="hint">Haz clic sobre Luna (cabeza, manos o ropa) para que reaccione.</p>
+        <div class="actions">
+          <button data-act="saludar">👋 Saludar</button>
+          <button data-act="charlar">💬 Charlar</button>
+          <button data-act="chiste">😂 Contar un chiste</button>
+          <button data-act="halagar">🌟 Halagar su look</button>
+        </div>
+        <h3>Regalos</h3>
+        <div id="gifts" class="actions gifts"></div>
+        <h3>Reto de estilo</h3>
+        <div id="challengeBox" class="challenge"></div>
+      </div>
+
+      <footer class="panel-footer">
+        <button id="btnRandom">🎲 Aleatorio</button>
+        <button id="btnPhoto">📸 Foto</button>
+        <button id="btnReset" class="ghost">↺ Reiniciar</button>
+      </footer>
+    </aside>
+  </main>
+
+  <script src="game.js"></script>
+</body>
+</html>
